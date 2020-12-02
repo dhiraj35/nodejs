@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Marrige Fund</title>  
+<link rel="stylesheet" href="/style.css">        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+
+<body>
+    <%- include('partial/nav'); -%>      
+    <h1>this is Home Page </h1> 
+    <div class="row" id="myForm">  
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input  id="first_name" name="first_name" type="text" class="validate">  
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="email" name="email" type="email" class="validate">
+                <label for="email">Email</label>  
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="mobile" name="mobile" type="text" class="validate">
+              <label for="mobile">Mobile</label>  
+            </div>
+            <div class="input-field col s6">
+                <input id="address" name="address" type="text" class="validate">
+                <label for="address">Address</label>      
+              </div>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          </button>
+          
+    </form>
+  </div>
+      <!----  <input type="text" name="whish" > 
+        <button type="submit"> Add</button>    
+    </form>-->  
+    <ul>
+      <%   wish.forEach(item =>{ %> 
+      <li onclick="deleteme(this)"><%= item.wish %></li>
+      <% }) %>
+</ul>      
+</body>  
+</html>  
+<script src="/script.js"></script>     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handle Client Reqest</title>  
+</head>
+<body>
+    <form id="myform" method="post">
+        <input type="text" name="username"/>
+        <input type="password" name="pass"/> 
+        <button type="submit">fetch It</button> <br><br> 
+    </form>  
+    <button type="button" id="mybtn">check Sample</button>    
+
+    <script> 
+    document.getElementById("myform").onsubmit  =  (e)=>{
+        e.preventDefault();  
+
+        var data = new URLSearchParams();
+       // console.log(e.target);    
+       for(const pair of new FormData(e.target)){
+          // console.log(pair);  
+        data.append(pair[0],pair[1])         
+       }
+
+        var data = {  
+        'username' : "Dhiraj",  
+        'password' : "Yadav"      
+        }  
+
+        const url = "http://localhost:4000/senddata";    
+        fetch(url,{
+            method:"post",
+            body :JSON.stringify(data),    
+            headers :{
+                'content-type' : 'application/json'
+            }
+        }).then(res => {
+            return res.json();
+        }).then(res2 => {
+            console.log(res2);      
+        })
+    }    
+
+    </script>
+    
+</body>
+</html>
